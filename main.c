@@ -3,6 +3,8 @@
 
 int main (int argc, char* argv[]){
 
-return 0;
+	printf("Et voila du bordel pour faire un conflit"); 
+
+	return 0;
 
 }
