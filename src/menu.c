@@ -7,7 +7,21 @@
 #include<string.h>
 #include<stdio.h>
 
+/*
+ * Fonction : choixMenu
+ *
+ * Parametres :  char *cmd : ligne de commande entré par l'utilisateur
+ *               int *quitter : pointeur sur un entier pour indiquer la poursuite
+ *                             ou non du programme
+ *
+ * Retour : int, valeur de vérification pour assurer qu'un paramètre valide à été
+ *              saisi
+ *
+ * Description : Permet d'appeler les fonctions demander par l'utilisateur
+ *
+ */
 int choixMenu(char *cmd, int *quitter) {
+    // TODO à voir pour ajouter une vérification de la casse de cmd
     if (strcmp(cmd, "creation") == 0) {
         fprintf(stderr, "Fonction création non implémentée\n");
         return 0;
@@ -48,6 +62,17 @@ int choixMenu(char *cmd, int *quitter) {
 
 }
 
+/*
+ * Fonction : afficherMenu
+ *
+ * Parametres :  FILE *stream : flux de donnée vers lequel afficher le menu
+ *
+ * Retour :  void
+ *
+ * Description : Permet l'affichage du menu principal de navigation de
+ * l'application.
+ *
+ */
 void afficherMenu(FILE *stream) {
     fprintf(stream, "Menu de séléction :\n"
             "- creation\n"

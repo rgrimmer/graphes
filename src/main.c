@@ -25,6 +25,6 @@ int main() {
         scanf("%s", commande);
         codeRetour = choixMenu(commande, &quitter);
     }
-    exit(EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }
 
