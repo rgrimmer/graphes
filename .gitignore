@@ -16,3 +16,4 @@ nbproject/*
 *.exe
 *.out
 *.app
+/list.exe.stackdump
