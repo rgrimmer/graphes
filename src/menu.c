@@ -47,3 +47,15 @@ int choixMenu(char *cmd, int *quitter) {
     return 1;
 
 }
+
+void afficherMenu(FILE *stream) {
+    fprintf(stream, "Menu de séléction :\n"
+            "- creation\n"
+            "- lecture\n"
+            "- insertionSommet\n"
+            "- insertionArete\n"
+            "- suppressionSommet\n"
+            "- affichage\n"
+            "- sauvegarde\n"
+            "- quitter \n");
+}

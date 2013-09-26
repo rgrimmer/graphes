@@ -21,15 +21,7 @@ int main() {
             printf("La fonction %s est invalide !\n", commande);
         }
         printf("\n");
-        printf("Menu de séléction :\n"
-                "- creation\n"
-                "- lecture\n"
-                "- insertionSommet\n"
-                "- insertionArete\n"
-                "- suppressionSommet\n"
-                "- affichage\n"
-                "- sauvegarde\n"
-                "- quitter \n");
+        afficherMenu(stdout);
         scanf("%s", commande);
         codeRetour = choixMenu(commande, &quitter);
     }

@@ -13,7 +13,7 @@ extern "C" {
 #endif
 
     int choixMenu(char *cmd, int *quitter);
-
+    void afficherMenu(FILE *stream);
 
 #ifdef	__cplusplus
 }
