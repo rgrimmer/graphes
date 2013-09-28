@@ -29,7 +29,7 @@ $(BINDIR) :
 	mkdir $(BINDIR)
 
 clean : 
-	rm $(OBJ); rm *~
+	rm $(OBJ);
 
 veryclean : clean
 	rm $(BINDIR)/$(EXEC)
