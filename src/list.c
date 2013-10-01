@@ -16,7 +16,7 @@ void AfficherListe(TypVoisin * l){
 
 void AjouterElement(TypVoisin ** l, int poids, int voisin){
 
-    TypVoisin * element = malloc(sizeof(TypVoisin*));
+    TypVoisin * element = malloc(sizeof(TypVoisin));
     
     if(!element){
         fprintf(stderr, "erreur d'allocation\n");
