@@ -4,12 +4,15 @@
 #include "graphe.h"
 #include "list.h"
 
-void initGraph(TypGraphe *g, int nbSommets){
-	g->nbMaxSommets = nbSommets;
-    int i = 0;
-    for (i = 0; i<nbSommets; i++){
-        g->listesAdjacences[i] = NULL;
+TypGraphe initGraph(int nbMaxSommets){
+    TypGraphe g;
+    g.nbMaxSommets = nbMaxSommets;
+    g.listesAdjacences = malloc(sizeof(TypVoisin**) * nbMaxSommets);
+    int i;
+    for (i=0; i<nbMaxSommets; i++){        
+        g.listesAdjacences[i] = NULL;
     }
+    return g;
 	
 }
 int insertionSommet(TypGraphe *g, int numeroSommet){    
@@ -19,19 +22,19 @@ int insertionSommet(TypGraphe *g, int numeroSommet){
 int insertionArete(TypGraphe *g,int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
 
     if (g->listesAdjacences[numeroSommetSource] != NULL){
-        ajouterElement(&g->listesAdjacences[numeroSommetSource],poidsSommet,numeroSommetCible);
+        ajouterElement(&g->listesAdjacences[numeroSommetSource],numeroSommetCible,poidsSommet);
     }else{
         TypVoisin *arete = NULL;
-        ajouterElement(&arete,poidsSommet,numeroSommetCible);
+        ajouterElement(&arete,numeroSommetCible,poidsSommet);
         g->listesAdjacences[numeroSommetSource] = arete;
     }
 
     if(oriente == 0){
         if (g->listesAdjacences[numeroSommetCible] != NULL){
-            ajouterElement(&g->listesAdjacences[numeroSommetCible],poidsSommet,numeroSommetSource);
+            ajouterElement(&g->listesAdjacences[numeroSommetCible],numeroSommetSource,poidsSommet);
         }else{
             TypVoisin *arete = NULL;
-            ajouterElement(&arete,poidsSommet,numeroSommetSource);
+            ajouterElement(&arete,numeroSommetSource,poidsSommet);
             g->listesAdjacences[numeroSommetCible] = arete;
         }
     }

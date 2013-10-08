@@ -3,7 +3,10 @@
 #include<string.h>
 
 #include "list.h"
+#include "graphe.h"
 #include "menu.h"
+
+
 
 int main() {
     printf("Bienvenue \n");
@@ -12,7 +15,9 @@ int main() {
     int codeRetour = 0;
     
     TypVoisin * l = NULL;
-
+    TypGraphe g;
+    g = initGraph(5);
+    
     ajouterElement(&l,2,6);
     ajouterElement(&l,6,2);
     ajouterElement(&l,9,9);
