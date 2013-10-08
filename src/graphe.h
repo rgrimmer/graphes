@@ -1,10 +1,3 @@
-/* 
- * File:   graphe.h
- * Author: remy_grimmer
- *
- * Created on 28 septembre 2013, 12:32
- */
-
 #ifndef GRAPHE_H
 #define	GRAPHE_H
 
@@ -12,10 +5,12 @@
 
 typedef struct{
 	int nbMaxSommets;
-        TypVoisin * listesAdjacences;
+        TypVoisin ** listesAdjacences;
 }TypGraphe;
 
-
+void initGraph(TypGraphe* g, int nbSommets);
+int insertionSommet(TypGraphe* g, int numeroSommet); 
+int insertionArete(TypGraphe* g,int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente); 
 
 #endif	/* GRAPHE_H */
 

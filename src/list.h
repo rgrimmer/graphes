@@ -7,8 +7,8 @@ typedef struct TypVoisin{
 	struct TypVoisin* voisinSuivant;
 }TypVoisin;
 
-void AjouterElement(TypVoisin** l, int poids, int voisin);
-//void SupprimerElement(TypVoisin** l, int voisin);
-void AfficherListe(TypVoisin* l);
+void ajouterElement(TypVoisin** l, int poids, int voisin);
+void supprimerElement(TypVoisin** l, int voisin);
+void afficherListe(TypVoisin* l);
 
 #endif

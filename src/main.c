@@ -19,12 +19,12 @@ int main() {
     
     TypVoisin * l = NULL;
 
-    AjouterElement(&l,1,2);
-    AjouterElement(&l,2,3);
-    AjouterElement(&l,3,4);
-    AfficherListe(l);
-    //SupprimerElement(&l,3);
-    AfficherListe(l);
+    ajouterElement(&l,1,2);
+    ajouterElement(&l,2,3);
+    ajouterElement(&l,3,4);
+    afficherListe(l);
+    supprimerElement(&l,1);
+    afficherListe(l);
     
 
     while (quitter != 1) {
