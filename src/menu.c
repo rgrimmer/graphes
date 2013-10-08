@@ -80,6 +80,7 @@ void afficherMenu(FILE *stream) {
             "- insertionSommet\n"
             "- insertionArete\n"
             "- suppressionSommet\n"
+	    "- suppressionArete\n"	
             "- affichage\n"
             "- sauvegarde\n"
             "- quitter \n");
