@@ -3,7 +3,7 @@
 
 #include "list.h"
 
-void AfficherListe(TypVoisin * l){  
+void afficherListe(TypVoisin * l){  
     TypVoisin * copie = l;
     
     while(copie != NULL){
@@ -11,38 +11,63 @@ void AfficherListe(TypVoisin * l){
         copie = copie->voisinSuivant;
     }
     
+    copie = NULL;
     printf("\n");
 }
 
-void AjouterElement(TypVoisin ** l, int poids, int voisin){
+void ajouterElement(TypVoisin ** l, int voisin, int poids){
 
-    TypVoisin * element = malloc(sizeof(TypVoisin));
-    
-    if(!element){
-        fprintf(stderr, "erreur d'allocation\n");
-        exit(EXIT_FAILURE);
-    }
-    
-    element->poidsVoisin = poids;
-    element->voisin = voisin;
-    element->voisinSuivant = NULL;
+	TypVoisin *ptl = *l;
+	TypVoisin *tmp;
 
-    
-    if(NULL == *l){
-        *l = element;
-    }
-    else{
-        TypVoisin * copie = *l;
-        
-        while(NULL != copie->voisinSuivant){
-            copie = copie->voisinSuivant;
-        }
-        
-        copie->voisinSuivant = element;
-    }
+	if(!ptl){
+		ptl = (TypVoisin*) malloc(sizeof(TypVoisin));
+		ptl->poidsVoisin = poids;
+		ptl->voisin = voisin;
+		ptl->voisinSuivant = NULL;
+		*l = ptl;
+		return;
+	}
+
+	if( ptl->voisin == voisin ) {
+		return;
+	}
+
+	if( voisin < ptl->voisin ) {
+		tmp = *l;
+		*l = (TypVoisin*) malloc(sizeof(TypVoisin));
+		(*l)->voisin = voisin;
+		(*l)->poidsVoisin = poids;
+		(*l)->voisinSuivant = tmp;
+		return;
+	}
+
+	while(ptl->voisinSuivant && ptl->voisinSuivant->voisin < voisin) {
+		ptl = ptl->voisinSuivant;
+	}
+
+	if(!ptl->voisinSuivant) {
+		ptl->voisinSuivant = (TypVoisin*) malloc(sizeof(TypVoisin));
+		ptl = ptl->voisinSuivant;
+		ptl->voisin = voisin;
+		ptl->poidsVoisin = poids;
+		ptl->voisinSuivant = NULL;
+		return;
+	}
+
+	if( ptl->voisinSuivant->voisin == voisin ) {
+		return;
+	}
+
+	tmp = ptl->voisinSuivant;
+	ptl->voisinSuivant = (TypVoisin*) malloc(sizeof(TypVoisin));
+	ptl = ptl->voisinSuivant;
+	ptl->voisin = voisin;
+	ptl->poidsVoisin = poids;
+	ptl->voisinSuivant = tmp;
 }
 
-/*void SupprimerElement(TypVoisin **l, int q) {
+void supprimerElement(TypVoisin **l, int q) {
 	TypVoisin *ptl;
 	TypVoisin *tmp;
 	ptl = *l;
@@ -67,4 +92,4 @@ void AjouterElement(TypVoisin ** l, int poids, int voisin){
 
 		ptl = ptl->voisinSuivant;
 	}
-}*/
+}

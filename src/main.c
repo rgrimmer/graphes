@@ -1,9 +1,3 @@
-/*
- * File:   main.c
- * Author: Hadryx
- *
- * Created on 26 septembre 2013, 13:34
- */
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -19,14 +13,15 @@ int main() {
     
     TypVoisin * l = NULL;
 
-    AjouterElement(&l,1,2);
-    AjouterElement(&l,2,3);
-    AjouterElement(&l,3,4);
-    AfficherListe(l);
-    //SupprimerElement(&l,3);
-    AfficherListe(l);
-    
+    ajouterElement(&l,2,6);
+    ajouterElement(&l,6,2);
+    ajouterElement(&l,9,9);
+    ajouterElement(&l,3,2);
 
+    afficherListe(l);
+    /*SupprimerElement(&l,3);
+    AfficherListe(l);*/
+   
     while (quitter != 1) {
         if (codeRetour) {
             printf("La fonction %s est invalide !\n", commande);
@@ -36,6 +31,12 @@ int main() {
         scanf("%s", commande);
         codeRetour = choixMenu(commande, &quitter);
     }
+
+
+/*
+TODO : tout libérer
+*/
+
     return (EXIT_SUCCESS);
 }
 
