@@ -3,7 +3,7 @@
 
 #include "list.h"
 
-void AfficherListe(TypVoisin * l){  
+void afficherListe(TypVoisin * l){  
     TypVoisin * copie = l;
     
     while(copie != NULL){
@@ -14,7 +14,7 @@ void AfficherListe(TypVoisin * l){
     printf("\n");
 }
 
-void AjouterElement(TypVoisin ** l, int voisin, int poids){
+void ajouterElement(TypVoisin ** l, int voisin, int poids){
 
 	TypVoisin *ptl = *l;
 	TypVoisin *tmp;
@@ -66,7 +66,7 @@ void AjouterElement(TypVoisin ** l, int voisin, int poids){
 	ptl->voisinSuivant = tmp;
 }
 
-void SupprimerElement(TypVoisin **l, int q) {
+void supprimerElement(TypVoisin **l, int q) {
 	TypVoisin *ptl;
 	TypVoisin *tmp;
 	ptl = *l;
