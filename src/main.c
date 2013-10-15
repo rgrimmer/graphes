@@ -14,7 +14,6 @@ int main() {
     int quitter = 0;
     int codeRetour = 0;
     
-    TypVoisin * l = NULL;
     TypGraphe g;
     g = initGraph(5);
 

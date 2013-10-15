@@ -21,6 +21,7 @@ void afficherGraphe(TypGraphe *g){
 	int i;
 	for(i = 1; i <= g->nbMaxSommets; ++i){
 		if(g->listesAdjacences[i] != NULL){
+			printf ("%d : ", i);
 			afficherListe(g->listesAdjacences[i]);
 		}
 	}
@@ -31,6 +32,7 @@ int insertionSommet(TypGraphe *g, int numeroSommet){
 }
 
 int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
+
     // Vérifications :
     // Sommet sources compris dans l'interval 1 -> nbMaxSommets
     if (checkTailleGraphe(g,numeroSommetSource) != 0){
@@ -73,6 +75,11 @@ int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, 
     
 
     return 0;
+}
+
+int suppresionArete(TypGraphe* g, int numeroSommetSource, int numeroSommetCible){
+	supprimerElement(&g->listesAdjacences[numeroSommetSource], numeroSommetCible);
+	return 0;
 }
 
 int checkTailleGraphe(TypGraphe *g, int numeroSommet){

@@ -7,7 +7,12 @@ void afficherListe(TypVoisin * l){
     TypVoisin * copie = l;
     
     while(copie != NULL){
-        printf("(%d,%d) ", copie->voisin, copie->poidsVoisin);
+        printf("(%d,%d)", copie->voisin, copie->poidsVoisin);
+
+		if(copie->voisinSuivant != NULL){
+			printf(", ");
+		}
+
         copie = copie->voisinSuivant;
     }
 
