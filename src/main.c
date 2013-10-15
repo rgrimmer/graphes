@@ -14,18 +14,16 @@ int main() {
     int quitter = 0;
     int codeRetour = 0;
     
-    TypVoisin * l = NULL;
     TypGraphe g;
     g = initGraph(5);
     
-    ajouterElement(&l,2,6);
-    ajouterElement(&l,6,2);
-    ajouterElement(&l,9,9);
-    ajouterElement(&l,3,2);
+	insertionArete(&g, 0, 3, 2, -1);
+	insertionArete(&g, 0, 5, 2, -1);
+	insertionArete(&g, 1, 2, 2, -1);
+	insertionArete(&g, 2, 4, 2, -1);
+	insertionArete(&g, 3, 4, 2, -1);
 
-    afficherListe(l);
-    /*SupprimerElement(&l,3);
-    AfficherListe(l);*/
+	afficherGraphe(&g);
    
     while (quitter != 1) {
         if (codeRetour) {

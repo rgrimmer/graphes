@@ -21,6 +21,7 @@ void afficherGraphe(TypGraphe *g){
 	int i;
 	for(i = 0; i < g->nbMaxSommets; ++i){
 		if(g->listesAdjacences[i] != NULL){
+			printf ("%d : ", i);
 			afficherListe(g->listesAdjacences[i]);
 		}
 	}
