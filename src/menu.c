@@ -22,39 +22,39 @@
  */
 int choixMenu(char *cmd, int *quitter) {
     // TODO à voir pour ajouter une vérification de la casse de cmd
-    if (strcmp(cmd, "creation") == 0) {
+    if (strcmp(cmd, "creation") == 0 || strcmp(cmd,"1") == 0) {
         fprintf(stderr, "Fonction création non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "lecture") == 0) {
+    if (strcmp(cmd, "lecture") == 0 || strcmp(cmd,"2") == 0) {
         fprintf(stderr, "Fonction lecture non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "insertionSommet") == 0) {
+    if (strcmp(cmd, "insertionSommet") == 0 || strcmp(cmd,"3") == 0) {
         fprintf(stderr, "Fonction insertion sommet non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "insertionArete") == 0) {
+    if (strcmp(cmd, "insertionArete") == 0 || strcmp(cmd,"4") == 0) {
         fprintf(stderr, "Fonction insertion arete non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "suppressionSommet") == 0) {
+    if (strcmp(cmd, "suppressionSommet") == 0 || strcmp(cmd,"5") == 0) {
         fprintf(stderr, "Fonction suppression sommet non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "suppressionArete") == 0) {
+    if (strcmp(cmd, "suppressionArete") == 0 || strcmp(cmd,"6") == 0) {
         fprintf(stderr, "Fonction suppression arete non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "affichage") == 0) {
+    if (strcmp(cmd, "affichage") == 0 || strcmp(cmd,"7") == 0) {
         fprintf(stderr, "Fonction affichage non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "sauvegarde") == 0) {
+    if (strcmp(cmd, "sauvegarde") == 0 || strcmp(cmd,"8") == 0) {
         fprintf(stderr, "Fonction sauvegarde non implémentée\n");
         return 0;
     }
-    if (strcmp(cmd, "quitter") == 0) {
+    if (strcmp(cmd, "quitter") == 0 || strcmp(cmd,"0") == 0) {
         *quitter = 1;
         return 0;
     }
@@ -75,13 +75,13 @@ int choixMenu(char *cmd, int *quitter) {
  */
 void afficherMenu(FILE *stream) {
     fprintf(stream, "Menu de séléction :\n"
-            "- creation\n"
-            "- lecture\n"
-            "- insertionSommet\n"
-            "- insertionArete\n"
-            "- suppressionSommet\n"
-	    "- suppressionArete\n"	
-            "- affichage\n"
-            "- sauvegarde\n"
-            "- quitter \n");
+            "1 - creation\n"
+            "2 - lecture\n"
+            "3 - insertionSommet\n"
+            "4 - insertionArete\n"
+            "5 - suppressionSommet\n"
+	    "6 - suppressionArete\n"	
+            "7 - affichage\n"
+            "8 - sauvegarde\n"
+            "0 - quitter \n");
 }
