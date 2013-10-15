@@ -9,17 +9,28 @@ TypGraphe initGraph(int nbMaxSommets){
     g.nbMaxSommets = nbMaxSommets;
     g.listesAdjacences = malloc(sizeof(TypVoisin**) * nbMaxSommets);
     int i;
+
     for (i=0; i<nbMaxSommets; i++){        
         g.listesAdjacences[i] = NULL;
     }
-    return g;
-	
+
+    return g;	
 }
+
+void afficherGraphe(TypGraphe *g){
+	int i;
+	for(i = 0; i < g->nbMaxSommets; ++i){
+		if(g->listesAdjacences[i] != NULL){
+			afficherListe(g->listesAdjacences[i]);
+		}
+	}
+}
+
 int insertionSommet(TypGraphe *g, int numeroSommet){    
     return insertionArete(g,numeroSommet,-1,0,1);
 }
 
-int insertionArete(TypGraphe *g,int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
+int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
 
     if (g->listesAdjacences[numeroSommetSource] != NULL){
         ajouterElement(&g->listesAdjacences[numeroSommetSource],numeroSommetCible,poidsSommet);
