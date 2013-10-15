@@ -33,7 +33,8 @@ int insertionSommet(TypGraphe *g, int numeroSommet){
 
 int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
 
-    // Vérification du sommet sources
+    // Vérifications :
+    // Sommet sources compris dans l'interval 
     if (checkTailleGraphe(g,numeroSommetSource) != 0){
         fprintf(stderr,"Impossible de rajouter une arrete sur un sommet inexistant !\n");
         return 1;
@@ -41,6 +42,10 @@ int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, 
     // Vérification du sommet cible
     if (checkTailleGraphe(g,numeroSommetCible) != 0 && numeroSommetCible != -1){
         fprintf(stderr,"Impossible de rajouter une arrete sur un sommet inexistant !\n");
+        return 1;
+    }
+    if (g->listesAdjacences[numeroSommetCible] == NULL){
+        fprintf(stderr,"Impossible d'ajouter une arrete sur un sommet non initialise !\n");
         return 1;
     }
     // Execution fonction
