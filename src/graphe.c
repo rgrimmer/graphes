@@ -7,7 +7,7 @@
 TypGraphe initGraph(int nbMaxSommets){
     TypGraphe g;
     g.nbMaxSommets = nbMaxSommets;
-    g.listesAdjacences = malloc(sizeof(TypVoisin**) * nbMaxSommets);
+    g.listesAdjacences = malloc(sizeof(TypVoisin**) * nbMaxSommets + 1);
     int i;
 
     for (i = 1; i <= nbMaxSommets; i++){        
@@ -32,17 +32,23 @@ int insertionSommet(TypGraphe *g, int numeroSommet){
 
 int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
     // Vérifications :
-    // Sommet sources compris dans l'interval 
+    // Sommet sources compris dans l'interval 1 -> nbMaxSommets
     if (checkTailleGraphe(g,numeroSommetSource) != 0){
         fprintf(stderr,"Impossible de rajouter une arrete sur un sommet inexistant !\n");
         return 1;
     }
-    // Vérification du sommet cible
+    // Sommet cible dans l'interval 1 -> nnMaxSommets ( et -1 pour la déclaration d'un sommet)
     if (checkTailleGraphe(g,numeroSommetCible) != 0 && numeroSommetCible != -1){
         fprintf(stderr,"Impossible de rajouter une arrete sur un sommet inexistant !\n");
         return 1;
     }
-    if (g->listesAdjacences[numeroSommetCible] == NULL){
+    // Sommet sources initialisé
+    if (g->listesAdjacences[numeroSommetSource] == NULL && numeroSommetCible != -1){
+        fprintf(stderr,"Impossible d'ajouter une arrete sur un sommet non initialise !\n");
+        return 1;
+    }
+    // Sommet cible initialisé 
+    if (g->listesAdjacences[numeroSommetCible] == NULL && numeroSommetCible != -1){
         fprintf(stderr,"Impossible d'ajouter une arrete sur un sommet non initialise !\n");
         return 1;
     }
