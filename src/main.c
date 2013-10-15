@@ -17,13 +17,18 @@ int main() {
     TypGraphe g;
     g = initGraph(5);
     
-	insertionArete(&g, 0, 3, 2, -1);
-	insertionArete(&g, 0, 5, 2, -1);
-	insertionArete(&g, 1, 2, 2, -1);
-	insertionArete(&g, 2, 4, 2, -1);
-	insertionArete(&g, 3, 4, 2, -1);
+	insertionSommet(&g, 1);
+	/*insertionSommet(&g, 2);
+	insertionSommet(&g, 3);
+	insertionSommet(&g, 4);
+	insertionSommet(&g, 5);*/
 
-	afficherGraphe(&g);
+	//insertionArete(&g, 2, 3, 2, -1);
+
+	
+	//suppresionArete(&g, 0, 3);
+
+	//afficherGraphe(&g);
    
     while (quitter != 1) {
         if (codeRetour) {
