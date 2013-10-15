@@ -10,7 +10,7 @@ TypGraphe initGraph(int nbMaxSommets){
     g.listesAdjacences = malloc(sizeof(TypVoisin**) * nbMaxSommets);
     int i;
 
-    for (i=0; i<nbMaxSommets; i++){        
+    for (i = 1; i <= nbMaxSommets; i++){        
         g.listesAdjacences[i] = NULL;
     }
 
@@ -19,7 +19,7 @@ TypGraphe initGraph(int nbMaxSommets){
 
 void afficherGraphe(TypGraphe *g){
 	int i;
-	for(i = 0; i < g->nbMaxSommets; ++i){
+	for(i = 1; i <= g->nbMaxSommets; ++i){
 		if(g->listesAdjacences[i] != NULL){
 			afficherListe(g->listesAdjacences[i]);
 		}
@@ -31,7 +31,17 @@ int insertionSommet(TypGraphe *g, int numeroSommet){
 }
 
 int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, int poidsSommet, int oriente){
-
+    // Vérification du sommet sources
+    if (checkTailleGraphe(g,numeroSommetSource) != 0){
+        fprintf(stderr,"Impossible de rajouter une arrete sur un sommet inexistant !\n");
+        return 1;
+    }
+    // Vérification du sommet cible
+    if (checkTailleGraphe(g,numeroSommetCible) != 0 && numeroSommetCible != -1){
+        fprintf(stderr,"Impossible de rajouter une arrete sur un sommet inexistant !\n");
+        return 1;
+    }
+    // Execution fonction
     if (g->listesAdjacences[numeroSommetSource] != NULL){
         ajouterElement(&g->listesAdjacences[numeroSommetSource],numeroSommetCible,poidsSommet);
     }else{
@@ -51,6 +61,13 @@ int insertionArete(TypGraphe *g, int numeroSommetSource, int numeroSommetCible, 
     }
     
 
+    return 0;
+}
+
+int checkTailleGraphe(TypGraphe *g, int numeroSommet){
+    if (numeroSommet > g->nbMaxSommets || numeroSommet < 1){
+        return 1;
+    }
     return 0;
 }
 
