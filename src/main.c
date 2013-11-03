@@ -1,53 +1,39 @@
+/*
+ **********************************************************
+ *
+ * Programme :  main.c
+ *
+ * ecrit par :  GRIMMER Rémy et BELKEBIR Hadrien
+ *
+ * resume :     fichier principal
+ *              
+ * date :       //TODO
+ *
+ ***********************************************************
+ */
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
-#include "list.h"
+#include "liste.h"
 #include "graphe.h"
 #include "menu.h"
 
 
-
 int main() {
-    printf("Bienvenue \n");
-    char commande[64];
-    int quitter = 0;
-    int codeRetour = 0;
-    
-    TypGraphe g;
-    g = initGraph(5);
 
-    
-    //insertionSommet(&g,1);
-    insertionSommet(&g,2);
-    insertionSommet(&g,3);
-    insertionSommet(&g,4);
-    insertionSommet(&g,5);
+    int choix;
+	int etat = E_STATE_NOUVEAU_GRAPHE;
 
-    insertionArete(&g,1,2,5,0);
-    insertionArete(&g,1,3,2,1);
-    insertionArete(&g,9,1,2,0);
-    insertionArete(&g,1,0,9,0);
-    insertionSommet(&g,8);
-    //insertionArete(&g,5,3,2,0);
-    
+    TypGraphe graphe;
 
-   
-    while (quitter != 1) {
-        if (codeRetour) {
-            printf("La fonction %s est invalide !\n", commande);
-        }
-        printf("\n");
-        afficherMenu(stdout);
-        scanf("%s", commande);
-        codeRetour = choixMenu(commande, &quitter);
-    }
-
-
-/*
-TODO : tout libérer
-*/
+	do {
+		printf("\n\n");
+		afficherMenu(etat);
+		scanf("%d%*[^\n]", &choix);
+		choixMenu(choix, &etat, &graphe);
+	} while (etat != E_STATE_QUITTER);
 
     return (EXIT_SUCCESS);
 }
+
 
